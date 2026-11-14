@@ -1,0 +1,19 @@
+[domination]
+display_name = "Domination"
+enabled_v1   = true
+description  = "Control every other player's original capital."
+
+[science]
+display_name = "Science"
+enabled_v1   = true
+description  = "Complete the tech tree."
+
+[score]
+display_name = "Score"
+enabled_v1   = true
+description  = "Highest score at the end of the game."
+
+# Post-v1 hooks — present so save format doesn't need to change to add them.
+[culture]
+display_name = "Culture"
+enabled_v1   = false

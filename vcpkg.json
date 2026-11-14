@@ -1,0 +1,10 @@
+{
+  "name": "asterism",
+  "version": "0.1.0",
+  "dependencies": [
+    "sdl3",
+    "glad",
+    { "name": "vcpkg-cmake", "host": true },
+    { "name": "vcpkg-cmake-config", "host": true }
+  ]
+}

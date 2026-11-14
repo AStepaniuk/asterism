@@ -1,0 +1,9 @@
+[scientist_basic]
+display_name = "Scientist"
+kind         = "scientist"
+rate         = 2
+
+[engineer_basic]
+display_name = "Engineer"
+kind         = "engineer"
+rate         = 2

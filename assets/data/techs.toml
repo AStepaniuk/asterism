@@ -1,0 +1,11 @@
+[bronze_working]
+display_name = "Bronze Working"
+cost         = 80
+prerequisites = []                     # list of tech IDs
+unlocks      = ["module.bronze_sword", "module.armor", "building.barracks"]
+
+[steam_power]
+display_name = "Steam Power"
+cost         = 600
+prerequisites = ["tech.engineering"]
+unlocks      = ["module.steam_engine"]

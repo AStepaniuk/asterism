@@ -1,0 +1,12 @@
+[traits.industrious]
+display_name = "Industrious"
+production_mult = 1.15
+
+[traits.scientific]
+display_name = "Scientific"
+scientist_mult = 1.10
+
+[rulers.example_leader]
+display_name = "Example Leader"
+trait        = "traits.industrious"
+start_tech   = "tech.agriculture"

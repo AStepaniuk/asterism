@@ -1,0 +1,17 @@
+[humanoid]
+display_name = "Humanoid"
+base_hp      = 100
+base_move    = 2
+base_cost    = 40
+slots        = 3
+tags         = ["infantry"]
+requires_tech = ""                     # empty = available at start
+
+[cavalry]
+display_name = "Cavalry"
+base_hp      = 90
+base_move    = 4
+base_cost    = 60
+slots        = 2
+tags         = ["mounted"]
+requires_tech = "tech.horseback_riding"

@@ -1,0 +1,11 @@
+[grassland]
+display_name = "Grassland"
+move_cost    = 1
+yields       = { food = 2, production = 0, gold = 0 }
+defense_bonus = 0
+
+[forest]
+display_name = "Forest"
+move_cost    = 2
+yields       = { food = 1, production = 1, gold = 0 }
+defense_bonus = 0.25

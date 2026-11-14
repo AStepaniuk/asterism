@@ -1,0 +1,20 @@
+[bronze_sword]
+display_name = "Bronze Sword"
+requires_tech = "tech.bronze_working"
+allowed_chassis = ["humanoid"]         # empty list = all chassis allowed
+effects = { attack = 8 }
+slot_cost = 1
+
+[armor]
+display_name = "Armor"
+requires_tech = "tech.bronze_working"
+allowed_chassis = ["humanoid", "cavalry"]
+effects = { defense = 6, move = -1 }
+slot_cost = 1
+
+[steam_engine]
+display_name = "Steam Engine"
+requires_tech = "tech.steam_power"
+allowed_chassis = ["siege"]
+effects = { move = 2 }
+slot_cost = 2

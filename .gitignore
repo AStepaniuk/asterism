@@ -1,0 +1,10 @@
+/build/
+/.cache/
+/_deps/
+out/
+*.user
+.vs/
+.vscode/
+.idea/
+compile_commands.json
+ccache/

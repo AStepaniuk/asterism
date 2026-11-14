@@ -1,0 +1,10 @@
+[veteran]
+xp_threshold = 20
+attack_mult  = 1.10
+defense_mult = 1.05
+
+[elite]
+xp_threshold = 80
+attack_mult  = 1.20
+defense_mult = 1.10
+move_bonus   = 1

@@ -1,0 +1,5 @@
+[library]
+display_name = "Library"
+cost         = 100
+requires_tech = "tech.writing"
+capability   = { kind = "scientist", rate = 2 }   # per city, adds to player pool

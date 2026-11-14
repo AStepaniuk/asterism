@@ -1,0 +1,60 @@
+name: ci
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: ubuntu-24.04,  preset: linux-debug   }
+          - { os: ubuntu-24.04,  preset: linux-release }
+          - { os: macos-14,      preset: macos-debug   }
+          - { os: macos-14,      preset: macos-release }
+          - { os: windows-2022,  preset: windows-debug }
+          - { os: windows-2022,  preset: windows-release }
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Linux deps
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ninja-build ccache libgl1-mesa-dev libx11-dev \
+            libxext-dev libxrandr-dev libxi-dev libxcursor-dev libxinerama-dev \
+            libwayland-dev libxkbcommon-dev
+
+      - name: Install macOS deps
+        if: runner.os == 'macOS'
+        run: brew install ninja ccache
+
+      - name: Install Windows deps
+        if: runner.os == 'Windows'
+        run: choco install ninja ccache -y
+
+      - name: Bootstrap vcpkg
+        uses: lukka/run-vcpkg@v11
+        with:
+          vcpkgJsonGlob: 'vcpkg.json'
+
+      - name: Configure
+        run: cmake --preset ${{ matrix.preset }}
+        env:
+          VCPKG_ROOT: ${{ github.workspace }}/vcpkg
+
+      - name: Cache FetchContent
+        uses: actions/cache@v4
+        with:
+          path: build/${{ matrix.preset }}/_deps
+          key: deps-${{ runner.os }}-${{ hashFiles('CMakeLists.txt') }}
+
+      - name: Build
+        run: cmake --build --preset ${{ matrix.preset }} --parallel
+
+      - name: Test
+        if: matrix.preset != '' && runner.os != 'Windows'
+        run: ctest --test-dir build/${{ matrix.preset }} --output-on-failure
+  
